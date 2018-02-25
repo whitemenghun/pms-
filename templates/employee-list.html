@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+    <h1>员工列表</h1>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>工资</td>
+                <td>地址</td>
+                <td>生日</td>
+            </tr>
+            {% for emp in employees %}
+                <tr>
+                    <td>{{ emp.id }}</td>
+                    <td>{{ emp.name }}</td>
+                    <td>{{ emp.gender }}</td>
+                    <td>{{ emp.salary }}</td>
+                    <td>{{ emp.address }}</td>
+                    <td>{{ emp.birthdate }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>
