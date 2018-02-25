@@ -1,0 +1,126 @@
+{% extends 'layout.html' %}
+{% block styleesheets %}
+    <!--bootstrap picker-->
+    <link rel="stylesheet" type="text/css" href="/admin/js/bootstrap-datepicker/css/datepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="/admin/js/bootstrap-timepicker/compiled/timepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="/admin/js/bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css" href="/admin/js/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" type="text/css" href="/admin/js/bootstrap-datetimepicker/css/datetimepicker.css"/>
+{% endblock %}
+
+{% block page_head %}
+    <!-- page head start-->
+    <div class="page-head">
+        <h3 class="m-b-less">
+            新增员工
+        </h3>
+        <!--<span class="sub-title">Welcome to Static Table</span>-->
+        <div class="state-information">
+            <ol class="breadcrumb m-b-less bg-less">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">人事管理</a></li>
+                <li class="active">新增员工</li>
+            </ol>
+        </div>
+    </div>
+    <!-- page head end-->
+{% endblock %}
+{% block main_content %}
+    <div class="wrapper">
+        <div class="row">
+            <section class="panel">
+                <header class="panel-heading">
+                    员工信息
+                </header>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="name" class="col-lg-2 col-sm-2 control-label">姓名</label>
+                            <div class="col-lg-4">
+                                {{ form.name(class_='form-control') }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">部门</label>
+                            <div class="col-md-2">
+                                <select class="form-control input-sm m-b-10">
+                                    {% for dep in departments %}
+                                        <option>{{ dep.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label col-lg-2" for="gender">性别</label>
+                            <div class="col-lg-4">
+                                <label>
+                                    <input type="radio" name="gender" id="male" value="男" checked>
+                                    男
+                                </label>
+                                <label>
+                                    <input type="radio" name="gender" id="female" value="女">
+                                    女
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="job" class="col-lg-2 col-sm-2 control-label">工作</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="job" name="job" placeholder="工作">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">生日</label>
+                            <div class="col-md-3 col-xs-2">
+                                <div data-date-viewmode="years" data-date-format="yyyy-mm-dd" data-date="2018-2-25"
+                                     class="input-append date dpYears">
+                                    <input type="text" readonly="" value="2018-2-25" size="10" class="form-control">
+                                    <span class="input-group-btn add-on">
+                                            <button class="btn btn-primary" type="button"><i class="fa fa-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="idcard" class="col-lg-2 col-sm-2 control-label">身份证号</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="idcard" name="idcard">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-lg-2 col-sm-2 control-label">地址</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="address" name="address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="salary" class="col-lg-2 col-sm-2 control-label">工资</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="salary" name="salary">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                                <button type="reset" class="btn btn-default">重置</button>
+                                <a href="{{ url_for('.emp_list') }}" class="btn btn-default">返回列表</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <!--bootstrap picker-->
+    <script type="text/javascript" src="/admin/js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="/admin/js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="/admin/js/bootstrap-daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="/admin/js/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="/admin/js/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script type="text/javascript" src="/admin/js/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+
+    <!--picker initialization-->
+    <script src="/admin/js/picker-init.js"></script>
+{% endblock %}
