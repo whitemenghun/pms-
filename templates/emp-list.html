@@ -1,4 +1,5 @@
 {% extends 'layout.html' %}
+{% import 'helper.html' as helper  %}
 {% block stylesheets %}
 
 {% endblock %}
@@ -41,7 +42,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for item in items %}
+                        {% for item in employees.items %}
                             <tr>
                                 <td><a href="#">{{ item.id }}</a></td>
                                 <td class="hidden-xs">{{ item.name }}</td>
@@ -59,17 +60,7 @@
                         {% endfor %}
                         </tbody>
                     </table>
-                    <div class="text-center">
-                        <ul class="pagination">
-                            <li><a href="#">«</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">»</a></li>
-                        </ul>
-                    </div>
+                    {{ helper.render_pagination(employees,'.emp_list') }}
                 </section>
             </div>
         </div>

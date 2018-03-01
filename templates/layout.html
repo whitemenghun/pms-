@@ -36,7 +36,7 @@
         <div class="sidebar-left">
             <!--responsive view logo start-->
             <div class="logo dark-logo-bg visible-xs-* visible-sm-*">
-                <a href="index.html">
+                <a href="{{ url_for('index') }}">
                     <img src="/admin/img/logo-icon.png" alt="">
                     <!--<i class="fa fa-maxcdn"></i>-->
                     <span class="brand-name">PMS人事管理系统</span>
@@ -58,8 +58,8 @@
                     <li class="menu-list nav-active">
                         <a href=""><i class="fa fa-laptop"></i> <span>人事管理</span></a>
                         <ul class="child-list">
-                            <li class="active"><a href="boxed-layout.html"> 人事列表</a></li>
-                            <li><a href="boxed-layout.html"> 新增员工</a></li>
+                            <li class="active"><a href="{{ url_for('.emp_list') }}"> 人事列表</a></li>
+                            <li><a href="{{ url_for('.emp_create') }}"> 新增员工</a></li>
                         </ul>
                     </li>
                 </ul>

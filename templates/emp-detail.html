@@ -33,48 +33,41 @@
                     员工信息
                 </header>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" method="post" role="form">
+                        {{ form.csrf_token }}
                         <div class="form-group">
-                            <label for="name" class="col-lg-2 col-sm-2 control-label">姓名</label>
+                            {{ form.name.label(class_="col-lg-2 col-sm-2 control-label") }}
                             <div class="col-lg-4">
                                 {{ form.name(class_='form-control') }}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">部门</label>
+                            {{ form.department_id.label(class_="col-sm-2 control-label col-lg-2") }}
                             <div class="col-md-2">
-                                <select class="form-control input-sm m-b-10">
-                                    {% for dep in departments %}
-                                        <option>{{ dep.name }}</option>
-                                    {% endfor %}
-                                </select>
+                                {{ form.department_id(class_="form-control input-sm m-b-10") }}
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label col-lg-2" for="gender">性别</label>
                             <div class="col-lg-4">
-                                <label>
-                                    <input type="radio" name="gender" id="male" value="男" checked>
-                                    男
-                                </label>
-                                <label>
-                                    <input type="radio" name="gender" id="female" value="女">
-                                    女
-                                </label>
+                                {% for gender in form.gender %}
+                                    {{ gender }}
+                                    {{ gender.label }}
+                                {% endfor %}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="job" class="col-lg-2 col-sm-2 control-label">工作</label>
+                            {{ form.job.label(class_="col-lg-2 col-sm-2 control-label") }}
                             <div class="col-lg-4">
-                                <input type="text" class="form-control" id="job" name="job" placeholder="工作">
+                                {{ form.job(class_="form-control") }}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2">生日</label>
+                            {{ form.birthdate.label(class_="control-label col-sm-2") }}
                             <div class="col-md-3 col-xs-2">
                                 <div data-date-viewmode="years" data-date-format="yyyy-mm-dd" data-date="2018-2-25"
                                      class="input-append date dpYears">
-                                    <input type="text" readonly="" value="2018-2-25" size="10" class="form-control">
+                                    {{ form.birthdate(readonly="", value="2018-2-25", size="10", class_="form-control") }}
                                     <span class="input-group-btn add-on">
                                             <button class="btn btn-primary" type="button"><i class="fa fa-calendar"></i></button>
                                     </span>
@@ -82,21 +75,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="idcard" class="col-lg-2 col-sm-2 control-label">身份证号</label>
+                            {{ form.idcard.label(class_="col-lg-2 col-sm-2 control-label") }}
                             <div class="col-lg-4">
-                                <input type="text" class="form-control" id="idcard" name="idcard">
+                                {{ form.idcard(class_="form-control") }}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="address" class="col-lg-2 col-sm-2 control-label">地址</label>
+                            {{ form.address.label(class_="col-lg-2 col-sm-2 control-label") }}
                             <div class="col-lg-4">
-                                <input type="text" class="form-control" id="address" name="address">
+                                {{ form.address(class_="form-control") }}
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="salary" class="col-lg-2 col-sm-2 control-label">工资</label>
+                            {{ form.salary.label(class_="col-lg-2 col-sm-2 control-label") }}
                             <div class="col-lg-4">
-                                <input type="text" class="form-control" id="salary" name="salary">
+                                {{ form.salary(class_="form-control") }}
                             </div>
                         </div>
                         <div class="form-group">
