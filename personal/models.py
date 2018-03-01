@@ -34,7 +34,7 @@ class Employee(db.Model):
     department_id = db.Column(db.Integer, db.ForeignKey('department.id'))
     department = db.relationship('Department', backref=db.backref('employees', lazy='dynamic'))
 
-    def __init__(self, name, gender, job, birthdate, idcard, address, salary, release_time=None):
+    def __init__(self, name=None, gender=None, job=None, birthdate=None, idcard=None, address=None, salary=None, release_time=None):
         self.name = name
         self.gender = gender
         self.job = job
